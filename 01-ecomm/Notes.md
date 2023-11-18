@@ -20,3 +20,26 @@
 
 - moved script from index to bootstrap
 - Error - shared modules are not available for eager consumption
+
+### Shared Module Versioning
+
+- Module Federation Plugin automatically loads different versions of shared modules if there is major version change
+
+### Singleton Loading
+
+- load only one dependency no matter what (even iff there is difference in module version)
+
+```js
+    new ModuleFederationPlugin({
+      name: 'products',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './ProductsIndex': './src/index',
+      },
+      shared: {
+        faker: {
+            singleton: true
+        }
+      },
+    }),
+```
