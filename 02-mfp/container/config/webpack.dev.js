@@ -10,7 +10,7 @@ const devConfig = {
   devServer: {
     port: 8080,
     historyApiFallback: {
-      index: 'index.html',
+      index: '/index.html', // prefixing the / OR historyApiFallback can be set to "true" directly intead of this object
     },
   },
   plugins: [
