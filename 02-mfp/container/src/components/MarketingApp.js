@@ -4,7 +4,11 @@ import { mount } from 'marketing/MarketingApp';
 export default () => {
   const ref = useRef(null);
   useEffect(() => {
-    mount(ref.current);
+    mount(ref.current, {
+      onNavigate: () => {
+        console.log('Navigation detected in marketing app');
+      },
+    });
   });
   return <div ref={ref} />;
 };
