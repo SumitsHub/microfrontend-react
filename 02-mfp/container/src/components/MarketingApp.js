@@ -16,6 +16,7 @@ export default () => {
           history.push(nextPathname);
         }
       },
+      initialPath: history.location.pathname,
     });
 
     history.listen(onParentNavigate);
