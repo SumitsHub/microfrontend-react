@@ -10,6 +10,8 @@ import Header from './components/Header';
 const AuthLazy = lazy(() => import('./components/AuthApp'));
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 
+import ProgressBar from './components/ProgressBar';
+
 const generateClassName = createGenerateClassName({
   productionPrefix: 'cont',
 });
@@ -19,7 +21,7 @@ export default () => {
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <Header />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<ProgressBar />}>
           <Switch>
             <Route path="/auth" component={AuthLazy} />
             <Route path="/" component={MarketingLazy} />
