@@ -6,7 +6,7 @@ const packageJson = require('../package.json');
 
 const commonConfig = require('./webpack.common');
 
-const PORT = 8082;
+const PORT = 8083;
 
 const devConfig = {
   mode: 'development',
@@ -16,13 +16,16 @@ const devConfig = {
   devServer: {
     port: PORT,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'auth',
+      name: 'dashboard',
       filename: 'remoteEntry.js',
       exposes: {
-        './AuthApp': './src/bootstrap',
+        './DashboardApp': './src/bootstrap',
       },
       shared: packageJson.dependencies,
     }),
