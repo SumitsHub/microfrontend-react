@@ -16,6 +16,9 @@ export default () => {
           history.push(nextPathname);
         }
       },
+      onSignIn: () => {
+        console.log('called onSignIn function');
+      },
       initialPath: history.location.pathname,
     });
 
